@@ -64,6 +64,8 @@ static const char *slockcmd[] = { "slock", NULL };
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	/* launch custom dmenu-like launcher: $HOME/bin/dmenu_custom_launcher */
+	{ MODKEY,                       XK_x,      spawn,          SHCMD("$HOME/bin/dmenu_custom_launcher") },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ControlMask,           XK_l,      spawn,          {.v = slockcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
