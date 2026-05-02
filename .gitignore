@@ -1,0 +1,7 @@
+# Build output
+dwm
+transient
+*.o
+
+# Config (keep config.def.h, ignore personal config.h)
+config.h
