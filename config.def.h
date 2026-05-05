@@ -78,6 +78,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = slockcmd } },
 	{ MODKEY,                       XK_b,      spawn,          SHCMD("$HOME/bin/dmenu_scripts/bookmark.sh") },
 	{ MODKEY,                       XK_p,      spawn,          SHCMD("$HOME/bin/dmenu_scripts/pass.sh") },
+	{ MODKEY,                       XK_o,      spawn,          SHCMD("$HOME/bin/dmenu_scripts/pass-otp.sh") },
 	{ MODKEY,                       XK_n,      spawn,          SHCMD("$HOME/bin/dmenu_scripts/notes.sh") },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
