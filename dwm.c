@@ -2830,6 +2830,19 @@ swapmon(const Arg *arg)
 	m1->stack = m2->stack;
 	m2->stack = tmp_stack;
 
+	/* switch selmon to the other monitor so focus follows the swapped clients */
+	Monitor *t = selmon;
+	if (selmon == m1)
+		t = m2;
+	else if (selmon == m2)
+		t = m1;
+
+	unfocus(selmon->sel, 0);
+	if (t && t->barwin)
+		XWarpPointer(dpy, None, t->barwin, 0, 0, 0, 0, t->ww / 2, bh / 2);
+	XSync(dpy, False);
+	selmon = t;
+
 	focus(NULL);
 	arrange(m1);
 	arrange(m2);
