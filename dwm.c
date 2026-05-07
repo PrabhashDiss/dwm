@@ -69,7 +69,6 @@
 #define XEMBED_FOCUS_IN             4
 #define XEMBED_MODALITY_ON         10
 #define XEMBED_MAPPED              (1 << 0)
-#define XEMBED_WINDOW_ACTIVATE      1
 #define XEMBED_WINDOW_DEACTIVATE    2
 #define VERSION_MAJOR               0
 #define VERSION_MINOR               0
