@@ -1536,7 +1536,8 @@ resize(Client *c, int x, int y, int w, int h, int interact)
 }
 
 void
-resizebarwin(Monitor *m) {
+resizebarwin(Monitor *m)
+{
 	unsigned int w = m->ww;
 	if (showsystray && m == systraytomon(m) && !systrayonleft)
 		w -= getsystraywidth();
@@ -2714,7 +2715,8 @@ wintoclient(Window w)
 }
 
 Client *
-wintosystrayicon(Window w) {
+wintosystrayicon(Window w)
+{
 	Client *i = NULL;
 
 	if (!showsystray || !w)
@@ -2777,7 +2779,8 @@ xerrorstart(Display *dpy, XErrorEvent *ee)
 }
 
 Monitor *
-systraytomon(Monitor *m) {
+systraytomon(Monitor *m)
+{
 	Monitor *t;
 	int i, n;
 	if(!systraypinning) {
