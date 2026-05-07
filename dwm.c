@@ -2810,32 +2810,35 @@ zoom(const Arg *arg)
 void
 swapmon(const Arg *arg)
 {
+	Monitor *m1, *m2, *t;
+	Client *c;
+	Client *tmp_clients, *tmp_stack;
+	unsigned int tmp;
+
 	if (mons->next == NULL)
 		return;
 
-	Monitor *m1 = mons;
-	Monitor *m2 = mons->next;
+	m1 = mons;
+	m2 = mons->next;
 
-	unsigned int tmp = m1->tagset[m1->seltags];
+	tmp = m1->tagset[m1->seltags];
 	m1->tagset[m1->seltags] = m2->tagset[m2->seltags];
 	m2->tagset[m2->seltags] = tmp;
 
-	Client *c;
 	for (c = m1->clients; c; c = c->next)
 		c->mon = m2;
 	for (c = m2->clients; c; c = c->next)
 		c->mon = m1;
 
-	Client *tmp_clients = m1->clients;
+	tmp_clients = m1->clients;
 	m1->clients = m2->clients;
 	m2->clients = tmp_clients;
 
-	Client *tmp_stack = m1->stack;
+	tmp_stack = m1->stack;
 	m1->stack = m2->stack;
 	m2->stack = tmp_stack;
 
-	/* switch selmon to the other monitor so focus follows the swapped clients */
-	Monitor *t = selmon;
+	t = selmon;
 	if (selmon == m1)
 		t = m2;
 	else if (selmon == m2)
