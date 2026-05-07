@@ -2605,18 +2605,18 @@ winpid(Window w)
 #endif /* __linux__ */
 
 #ifdef __OpenBSD__
-        Atom type;
-        int format;
-        unsigned long len, bytes;
-        unsigned char *prop;
-        pid_t ret;
+	Atom type;
+	int format;
+	unsigned long len, bytes;
+	unsigned char *prop;
+	pid_t ret;
 
-        if (XGetWindowProperty(dpy, w, XInternAtom(dpy, "_NET_WM_PID", 0), 0, 1, False, AnyPropertyType, &type, &format, &len, &bytes, &prop) != Success || !prop)
-               return 0;
+	if (XGetWindowProperty(dpy, w, XInternAtom(dpy, "_NET_WM_PID", 0), 0, 1, False, AnyPropertyType, &type, &format, &len, &bytes, &prop) != Success || !prop)
+		return 0;
 
-        ret = *(pid_t*)prop;
-        XFree(prop);
-        result = ret;
+	ret = *(pid_t*)prop;
+	XFree(prop);
+	result = ret;
 
 #endif /* __OpenBSD__ */
 	return result;
